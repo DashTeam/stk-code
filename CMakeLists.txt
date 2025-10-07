@@ -19,6 +19,7 @@ CMAKE_DEPENDENT_OPTION(USE_SWITCH "Build targeting switch" OFF "NOT NINTENDO_SWI
 
 if(WIN32)
     option(USE_DIRECTX "Build DirectX 9 driver (requires DirectX SDK)" OFF)
+option(COMPILE_XBOX "Build Xbox version (requires Microsoft GDK)" OFF)
 endif()
 
 option(SERVER_ONLY "Create a server only (i.e. no graphics or sound)" OFF)
