@@ -448,9 +448,9 @@ if(NOT SERVER_ONLY)
     SET(JRTPLIB_LIBRARY libjrtplib)
 	
 	#RtAudio
-    add_subdirectory("${PROJECT_SOURCE_DIR}/lib/librtaudio")
-    include_directories(BEFORE "${PROJECT_SOURCE_DIR}/lib/librtaudio/include")
-    SET(RTAUDIO_LIBRARY librtaudio)
+    add_subdirectory("${PROJECT_SOURCE_DIR}/lib/rtaudio")
+    include_directories(BEFORE "${PROJECT_SOURCE_DIR}/lib/rtaudio/include")
+    SET(RTAUDIO_LIBRARY rtaudio)
 
     add_definitions(-DENABLE_SOUND)
 endif()
