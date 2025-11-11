@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12...4.0)
+cmake_minimum_required(VERSION 3.6...4.0)
 
 # root CMakeLists for the SuperTuxKart project
 project(SuperTuxKart)
@@ -443,6 +443,15 @@ if(NOT SERVER_ONLY)
     find_package(OggVorbis REQUIRED)
     include_directories(${OGGVORBIS_INCLUDE_DIRS})
 
+    #JRTPLIB
+	add_subdirectory("${PROJECT_SOURCE_DIR}/lib/libjrtplib")
+    SET(JRTPLIB_LIBRARY libjrtplib)
+	
+	#RtAudio
+    add_subdirectory("${PROJECT_SOURCE_DIR}/lib/librtaudio")
+    include_directories(BEFORE "${PROJECT_SOURCE_DIR}/lib/librtaudio/include")
+    SET(RTAUDIO_LIBRARY librtaudio)
+
     add_definitions(-DENABLE_SOUND)
 endif()
 
@@ -791,6 +800,8 @@ if(NOT SERVER_ONLY)
         ${SQUISH_LIBRARY}
         ${JPEG_LIBRARIES}
         ${OGGVORBIS_LIBRARIES}
+		${JRTPLIB_LIBRARY}
+		${RTAUDIO_LIBRARY}
         ${FREETYPE_LIBRARIES}
         ${HARFBUZZ_LIBRARY}
         ${SHEENBIDI_LIBRARY}
